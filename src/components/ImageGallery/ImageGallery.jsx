@@ -11,7 +11,7 @@ const ImageGallery = ({ images, onImageClick }) => {
         >
           <img
             src={image.urls.small}
-            alt={image.alt_description}
+            alt={image.alt_description || "Image"}
             className={styles.image}
           />
         </li>

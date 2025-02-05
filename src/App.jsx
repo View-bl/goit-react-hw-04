@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+// App.jsx
+import  { useState, useEffect } from "react";
 import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import SearchBar from "./components/SearchBar/SearchBar";
@@ -6,7 +7,7 @@ import ImageGallery from "./components/ImageGallery/ImageGallery";
 import Loader from "./components/Loader/Loader";
 import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
-import ImageModal from "./components/ImageModal/ImageModal";
+import ImageModal from "./components/ImageModal/ImageModal"; 
 import "./App.css";
 
 const API_URL = "https://api.unsplash.com/search/photos";
@@ -58,16 +59,6 @@ const App = () => {
 
     return () => controller.abort();
   }, [query, page]);
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setSelectedImage(null);
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
 
   const handleSearchSubmit = (searchTerm) => {
     if (!searchTerm.trim()) {
